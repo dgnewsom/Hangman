@@ -13,9 +13,12 @@ public class Dictionary {
 public static char[] getRandomWord() {
 		Random rand = new Random();
 				
+		String path = System.getProperty("user.dir") + "\\src\\dictionary.txt";
+		System.out.println(path);
+		
 		FileReader file = null;
 		try {
-			file = new FileReader("\\dictionary.txt");
+			file = new FileReader(path);
 		} catch (FileNotFoundException e1) {
 			System.err.println("dictionary.txt not found!");
 		}
@@ -37,3 +40,4 @@ public static char[] getRandomWord() {
 		return words.get(rand.nextInt(words.size())).toCharArray();
 	}
 }
+
